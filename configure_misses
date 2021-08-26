@@ -3,10 +3,7 @@ Configure miss: ber_free in -llber
 Configure miss: byte typedef
 Configure miss: direct.h presence
 Configure miss: direct.h usability
-Configure miss: library containing dn_expand
-Configure miss: library containing dn_skipname
 Configure miss: library containing res_9_dn_skipname
-Configure miss: library containing res_query
 Configure miss: memicmp
 Configure miss: ntbtls-config
 Configure miss: sendmail
