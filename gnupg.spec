@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x528897B826403ADA
 #
 Name     : gnupg
-Version  : 2.2.30
-Release  : 70
-URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.30.tar.bz2
-Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.30.tar.bz2
-Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.30.tar.bz2.sig
+Version  : 2.2.31
+Release  : 71
+URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.31.tar.bz2
+Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.31.tar.bz2
+Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.31.tar.bz2.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0 NCSA
@@ -119,8 +119,8 @@ man components for the gnupg package.
 
 
 %prep
-%setup -q -n gnupg-2.2.30
-cd %{_builddir}/gnupg-2.2.30
+%setup -q -n gnupg-2.2.31
+cd %{_builddir}/gnupg-2.2.31
 %patch1 -p1
 
 %build
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630009755
+export SOURCE_DATE_EPOCH=1631806164
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -148,16 +148,16 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1630009755
+export SOURCE_DATE_EPOCH=1631806164
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnupg
-cp %{_builddir}/gnupg-2.2.30/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee
-cp %{_builddir}/gnupg-2.2.30/COPYING.CC0 %{buildroot}/usr/share/package-licenses/gnupg/754becb73f3b288d7d8a62d8927a334cd38ac10b
-cp %{_builddir}/gnupg-2.2.30/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/gnupg/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/gnupg-2.2.30/COPYING.LGPL21 %{buildroot}/usr/share/package-licenses/gnupg/ac1b58bbd5bc11cacb7205718d620156ffd57c7e
-cp %{_builddir}/gnupg-2.2.30/COPYING.LGPL3 %{buildroot}/usr/share/package-licenses/gnupg/bf58811df8e4261d540cc1872f42011872ca8f54
-cp %{_builddir}/gnupg-2.2.30/COPYING.other %{buildroot}/usr/share/package-licenses/gnupg/366d4e13a65adbfd0f7972f4c8dc9891692e92e5
-cp %{_builddir}/gnupg-2.2.30/tests/gpgscm/LICENSE.TinySCHEME %{buildroot}/usr/share/package-licenses/gnupg/ca474fc88304aab05401b27d158b3f9e0c1ffae6
+cp %{_builddir}/gnupg-2.2.31/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee
+cp %{_builddir}/gnupg-2.2.31/COPYING.CC0 %{buildroot}/usr/share/package-licenses/gnupg/754becb73f3b288d7d8a62d8927a334cd38ac10b
+cp %{_builddir}/gnupg-2.2.31/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/gnupg/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/gnupg-2.2.31/COPYING.LGPL21 %{buildroot}/usr/share/package-licenses/gnupg/ac1b58bbd5bc11cacb7205718d620156ffd57c7e
+cp %{_builddir}/gnupg-2.2.31/COPYING.LGPL3 %{buildroot}/usr/share/package-licenses/gnupg/bf58811df8e4261d540cc1872f42011872ca8f54
+cp %{_builddir}/gnupg-2.2.31/COPYING.other %{buildroot}/usr/share/package-licenses/gnupg/366d4e13a65adbfd0f7972f4c8dc9891692e92e5
+cp %{_builddir}/gnupg-2.2.31/tests/gpgscm/LICENSE.TinySCHEME %{buildroot}/usr/share/package-licenses/gnupg/ca474fc88304aab05401b27d158b3f9e0c1ffae6
 %make_install
 %find_lang gnupg2
 ## install_append content
