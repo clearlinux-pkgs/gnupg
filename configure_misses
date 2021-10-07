@@ -6,6 +6,7 @@ Configure miss: direct.h usability
 Configure miss: library containing res_9_dn_skipname
 Configure miss: memicmp
 Configure miss: ntbtls-config
+Configure miss: sendmail
 Configure miss: strerror in -lcposix
 Configure miss: strlwr
 Configure miss: struct sockpeercred.pid
