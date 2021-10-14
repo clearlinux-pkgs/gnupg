@@ -1,40 +1,80 @@
 Configure miss: NTBTLS - version >= 0.1.0
+Configure miss: NTBTLS - version >= 0.1.0
+Configure miss: ber_free in -llber
 Configure miss: ber_free in -llber
 Configure miss: byte typedef
+Configure miss: byte typedef
+Configure miss: direct.h presence
 Configure miss: direct.h presence
 Configure miss: direct.h usability
+Configure miss: direct.h usability
+Configure miss: library containing res_9_dn_skipname
 Configure miss: library containing res_9_dn_skipname
 Configure miss: memicmp
+Configure miss: memicmp
+Configure miss: ntbtls-config
 Configure miss: ntbtls-config
 Configure miss: sendmail
+Configure miss: sendmail
+Configure miss: strerror in -lcposix
 Configure miss: strerror in -lcposix
 Configure miss: strlwr
+Configure miss: strlwr
+Configure miss: struct sockpeercred.pid
 Configure miss: struct sockpeercred.pid
 Configure miss: struct ucred.cr_pid
+Configure miss: struct ucred.cr_pid
+Configure miss: sys/ucred.h presence
 Configure miss: sys/ucred.h presence
 Configure miss: sys/ucred.h usability
+Configure miss: sys/ucred.h usability
+Configure miss: u16 typedef
 Configure miss: u16 typedef
 Configure miss: u32 typedef
+Configure miss: u32 typedef
+Configure miss: ucred.h
 Configure miss: ucred.h
 Configure miss: ucred.h presence
+Configure miss: ucred.h presence
 Configure miss: ucred.h usability
+Configure miss: ucred.h usability
+Configure miss: whether "make check" shall run all tests
 Configure miss: whether "make check" shall run all tests
 Configure miss: whether I can make LDAP be sane with lber.h
 Configure miss: whether I can make LDAP be sane with lber.h
 Configure miss: whether I can make LDAP be sane with lber.h
 Configure miss: whether I can make LDAP be sane with lber.h
+Configure miss: whether I can make LDAP be sane with lber.h
+Configure miss: whether I can make LDAP be sane with lber.h
+Configure miss: whether I can make LDAP be sane with lber.h
+Configure miss: whether I can make LDAP be sane with lber.h
+Configure miss: whether LDAP via "-lldap -llber -lresolv" is present and sane
 Configure miss: whether LDAP via "-lldap -llber -lresolv" is present and sane
 Configure miss: whether LDAP via "-lldap -llber" is present and sane
+Configure miss: whether LDAP via "-lldap -llber" is present and sane
+Configure miss: whether LDAP via "-lldap" is present and sane
 Configure miss: whether LDAP via "-lldap" is present and sane
 Configure miss: whether LDAP via "-lwldap32" is present and sane
+Configure miss: whether LDAP via "-lwldap32" is present and sane
+Configure miss: whether SELinux support is requested
 Configure miss: whether SELinux support is requested
 Configure miss: whether readline via "-lreadline -lcurses" is present and sane
+Configure miss: whether readline via "-lreadline -lcurses" is present and sane
+Configure miss: whether readline via "-lreadline -lncurses" is present and sane
 Configure miss: whether readline via "-lreadline -lncurses" is present and sane
 Configure miss: whether readline via "-lreadline -ltermcap" is present and sane
+Configure miss: whether readline via "-lreadline -ltermcap" is present and sane
+Configure miss: whether readline via "-lreadline" is present and sane
 Configure miss: whether readline via "-lreadline" is present and sane
 Configure miss: whether sys_siglist is declared
+Configure miss: whether sys_siglist is declared
+Configure miss: whether time_t is unsigned
 Configure miss: whether time_t is unsigned
 Configure miss: whether to allocate extra secure memory
+Configure miss: whether to allocate extra secure memory
+Configure miss: whether to use a fixed photo ID viewer
 Configure miss: whether to use a fixed photo ID viewer
 Configure miss: whether use of capabilities is requested
+Configure miss: whether use of capabilities is requested
+Configure miss: windres
 Configure miss: windres

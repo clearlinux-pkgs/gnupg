@@ -6,7 +6,7 @@
 #
 Name     : gnupg
 Version  : 2.2.32
-Release  : 72
+Release  : 73
 URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.32.tar.bz2
 Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.32.tar.bz2
 Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.32.tar.bz2.sig
@@ -15,6 +15,7 @@ Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0 NCSA
 Requires: gnupg-bin = %{version}-%{release}
 Requires: gnupg-data = %{version}-%{release}
+Requires: gnupg-filemap = %{version}-%{release}
 Requires: gnupg-info = %{version}-%{release}
 Requires: gnupg-libexec = %{version}-%{release}
 Requires: gnupg-license = %{version}-%{release}
@@ -54,6 +55,7 @@ Group: Binaries
 Requires: gnupg-data = %{version}-%{release}
 Requires: gnupg-libexec = %{version}-%{release}
 Requires: gnupg-license = %{version}-%{release}
+Requires: gnupg-filemap = %{version}-%{release}
 
 %description bin
 bin components for the gnupg package.
@@ -77,6 +79,14 @@ Requires: gnupg-info = %{version}-%{release}
 doc components for the gnupg package.
 
 
+%package filemap
+Summary: filemap components for the gnupg package.
+Group: Default
+
+%description filemap
+filemap components for the gnupg package.
+
+
 %package info
 Summary: info components for the gnupg package.
 Group: Default
@@ -89,6 +99,7 @@ info components for the gnupg package.
 Summary: libexec components for the gnupg package.
 Group: Default
 Requires: gnupg-license = %{version}-%{release}
+Requires: gnupg-filemap = %{version}-%{release}
 
 %description libexec
 libexec components for the gnupg package.
@@ -122,13 +133,16 @@ man components for the gnupg package.
 %setup -q -n gnupg-2.2.32
 cd %{_builddir}/gnupg-2.2.32
 %patch1 -p1
+pushd ..
+cp -a gnupg-2.2.32 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633567221
+export SOURCE_DATE_EPOCH=1634255774
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -140,6 +154,16 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static --disable-rpath
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
+%configure --disable-static --disable-rpath
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
@@ -148,7 +172,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1633567221
+export SOURCE_DATE_EPOCH=1634255774
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnupg
 cp %{_builddir}/gnupg-2.2.32/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee
@@ -158,11 +182,15 @@ cp %{_builddir}/gnupg-2.2.32/COPYING.LGPL21 %{buildroot}/usr/share/package-licen
 cp %{_builddir}/gnupg-2.2.32/COPYING.LGPL3 %{buildroot}/usr/share/package-licenses/gnupg/bf58811df8e4261d540cc1872f42011872ca8f54
 cp %{_builddir}/gnupg-2.2.32/COPYING.other %{buildroot}/usr/share/package-licenses/gnupg/366d4e13a65adbfd0f7972f4c8dc9891692e92e5
 cp %{_builddir}/gnupg-2.2.32/tests/gpgscm/LICENSE.TinySCHEME %{buildroot}/usr/share/package-licenses/gnupg/ca474fc88304aab05401b27d158b3f9e0c1ffae6
+pushd ../buildavx2/
+%make_install_v3
+popd
 %make_install
 %find_lang gnupg2
 ## install_append content
 ln -s gpg %{buildroot}/usr/bin/gpg2
 ## install_append end
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -187,6 +215,7 @@ ln -s gpg %{buildroot}/usr/bin/gpg2
 /usr/bin/gpgv
 /usr/bin/kbxutil
 /usr/bin/watchgnupg
+/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -225,6 +254,10 @@ ln -s gpg %{buildroot}/usr/bin/gpg2
 %defattr(0644,root,root,0755)
 %doc /usr/share/doc/gnupg/*
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-gnupg
+
 %files info
 %defattr(0644,root,root,0755)
 /usr/share/info/gnupg.info
@@ -238,6 +271,7 @@ ln -s gpg %{buildroot}/usr/bin/gpg2
 /usr/libexec/gpg-protect-tool
 /usr/libexec/gpg-wks-client
 /usr/libexec/scdaemon
+/usr/share/clear/optimized-elf/exec*
 
 %files license
 %defattr(0644,root,root,0755)
