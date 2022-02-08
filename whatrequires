@@ -1,11 +1,8 @@
 # This file contains recursive sources that require this package
 dnsmasq
-flatpak
 gcr
 gmime
 gpgme
-kleopatra
-koji
 libcryptui
 libreoffice
 mutt
