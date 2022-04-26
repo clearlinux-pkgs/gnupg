@@ -27,7 +27,7 @@ index 94e233b..4fbb5c7 100644
    {
      pk_list_t pkr;
  
-@@ -868,6 +877,15 @@ encrypt_filter (void *opaque, int control,
+@@ -880,6 +889,15 @@ encrypt_filter (void *opaque, int control,
  
            efx->cfx.dek->use_mdc = use_mdc (efx->pk_list,efx->cfx.dek->algo);
  
