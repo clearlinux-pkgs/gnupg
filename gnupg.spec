@@ -6,7 +6,7 @@
 #
 Name     : gnupg
 Version  : 2.2.35
-Release  : 78
+Release  : 79
 URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.35.tar.bz2
 Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.35.tar.bz2
 Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.35.tar.bz2.sig
@@ -140,7 +140,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650940785
+export SOURCE_DATE_EPOCH=1656035695
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -170,7 +170,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1650940785
+export SOURCE_DATE_EPOCH=1656035695
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnupg
 cp %{_builddir}/gnupg-2.2.35/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee
@@ -188,7 +188,7 @@ popd
 ## install_append content
 ln -s gpg %{buildroot}/usr/bin/gpg2
 ## install_append end
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
