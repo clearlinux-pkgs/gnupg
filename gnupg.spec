@@ -6,7 +6,7 @@
 #
 Name     : gnupg
 Version  : 2.2.36
-Release  : 82
+Release  : 83
 URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.36.tar.bz2
 Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.36.tar.bz2
 Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.36.tar.bz2.sig
