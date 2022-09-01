@@ -8,26 +8,26 @@ Subject: [PATCH] Warn on use of insecure 3DES algo
  1 file changed, 18 insertions(+)
 
 diff --git a/g10/encrypt.c b/g10/encrypt.c
-index 94e233b..4fbb5c7 100644
+index a96a779..e22c091 100644
 --- a/g10/encrypt.c
 +++ b/g10/encrypt.c
-@@ -627,6 +627,15 @@ encrypt_crypt (ctrl_t ctrl, int filefd, const char *filename,
-   compliant = gnupg_cipher_is_compliant (CO_DE_VS, cfx.dek->algo,
+@@ -538,6 +538,15 @@ check_encryption_compliance (DEK *dek, pk_list_t pk_list)
+   compliant = gnupg_cipher_is_compliant (CO_DE_VS, dek->algo,
                                           GCRY_CIPHER_MODE_CFB);
  
-+  switch (cfx.dek->algo)
++  switch (dek->algo)
 +  {
 +    case GCRY_CIPHER_3DES:
 +      log_error (_("WARNING: cipher algorithm '%s' is insecure and not"
 +                   " suitable for encryption!\n"),
-+                 openpgp_cipher_algo_name (cfx.dek->algo));
++                 openpgp_cipher_algo_name (dek->algo));
 +      break;
 +  };
 +
-   {
-     pk_list_t pkr;
- 
-@@ -880,6 +889,15 @@ encrypt_filter (void *opaque, int control,
+   for (pkr = pk_list; pkr; pkr = pkr->next)
+     {
+       PKT_public_key *pk = pkr->pk;
+@@ -886,6 +895,15 @@ encrypt_filter (void *opaque, int control,
  
            efx->cfx.dek->use_mdc = use_mdc (efx->pk_list,efx->cfx.dek->algo);
  
