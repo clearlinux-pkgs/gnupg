@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x528897B826403ADA
 #
 Name     : gnupg
-Version  : 2.2.39
-Release  : 88
-URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.39.tar.bz2
-Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.39.tar.bz2
-Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.39.tar.bz2.sig
+Version  : 2.2.40
+Release  : 89
+URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.40.tar.bz2
+Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.40.tar.bz2
+Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.40.tar.bz2.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0 NCSA
@@ -35,6 +35,7 @@ BuildRequires : pkgconfig(gnutls)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : pkgconfig(zlib)
 Patch1: 0001-Warn-on-use-of-insecure-3DES-algo.patch
+Patch2: backport-dirmngr-Fix-build-with-no-LDAP-support.patch
 
 %description
 The GNU Privacy Guard 2
@@ -128,11 +129,12 @@ man components for the gnupg package.
 
 
 %prep
-%setup -q -n gnupg-2.2.39
-cd %{_builddir}/gnupg-2.2.39
+%setup -q -n gnupg-2.2.40
+cd %{_builddir}/gnupg-2.2.40
 %patch1 -p1
+%patch2 -p1
 pushd ..
-cp -a gnupg-2.2.39 buildavx2
+cp -a gnupg-2.2.40 buildavx2
 popd
 
 %build
@@ -140,7 +142,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662359254
+export SOURCE_DATE_EPOCH=1666126557
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -170,7 +172,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1662359254
+export SOURCE_DATE_EPOCH=1666126557
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnupg
 cp %{_builddir}/gnupg-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee

@@ -15,6 +15,7 @@ Configure miss: memicmp
 Configure miss: ntbtls-config
 Configure miss: ntbtls-config
 Configure miss: sendmail
+Configure miss: sendmail
 Configure miss: strerror in -lcposix
 Configure miss: strerror in -lcposix
 Configure miss: strlwr
