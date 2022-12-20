@@ -1,2 +1,1 @@
 0001-Warn-on-use-of-insecure-3DES-algo.patch
-backport-dirmngr-Fix-build-with-no-LDAP-support.patch

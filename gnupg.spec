@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x528897B826403ADA
 #
 Name     : gnupg
-Version  : 2.2.40
-Release  : 89
-URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.40.tar.bz2
-Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.40.tar.bz2
-Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.40.tar.bz2.sig
+Version  : 2.4.0
+Release  : 90
+URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2
+Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2
+Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0 NCSA
@@ -35,12 +35,11 @@ BuildRequires : pkgconfig(gnutls)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : pkgconfig(zlib)
 Patch1: 0001-Warn-on-use-of-insecure-3DES-algo.patch
-Patch2: backport-dirmngr-Fix-build-with-no-LDAP-support.patch
 
 %description
 The GNU Privacy Guard 2
 =========================
-Version 2.2
+Version 2.4
 * INTRODUCTION
 GnuPG is a complete and free implementation of the OpenPGP standard
 as defined by RFC4880 (also known as PGP).  GnuPG enables encryption
@@ -129,12 +128,11 @@ man components for the gnupg package.
 
 
 %prep
-%setup -q -n gnupg-2.2.40
-cd %{_builddir}/gnupg-2.2.40
+%setup -q -n gnupg-2.4.0
+cd %{_builddir}/gnupg-2.4.0
 %patch1 -p1
-%patch2 -p1
 pushd ..
-cp -a gnupg-2.2.40 buildavx2
+cp -a gnupg-2.4.0 buildavx2
 popd
 
 %build
@@ -142,7 +140,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666126557
+export SOURCE_DATE_EPOCH=1671561526
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -172,16 +170,16 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1666126557
+export SOURCE_DATE_EPOCH=1671561526
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnupg
-cp %{_builddir}/gnupg-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee
-cp %{_builddir}/gnupg-%{version}/COPYING.CC0 %{buildroot}/usr/share/package-licenses/gnupg/754becb73f3b288d7d8a62d8927a334cd38ac10b
-cp %{_builddir}/gnupg-%{version}/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/gnupg/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/gnupg-%{version}/COPYING.LGPL21 %{buildroot}/usr/share/package-licenses/gnupg/ac1b58bbd5bc11cacb7205718d620156ffd57c7e
-cp %{_builddir}/gnupg-%{version}/COPYING.LGPL3 %{buildroot}/usr/share/package-licenses/gnupg/bf58811df8e4261d540cc1872f42011872ca8f54
-cp %{_builddir}/gnupg-%{version}/COPYING.other %{buildroot}/usr/share/package-licenses/gnupg/366d4e13a65adbfd0f7972f4c8dc9891692e92e5
-cp %{_builddir}/gnupg-%{version}/tests/gpgscm/LICENSE.TinySCHEME %{buildroot}/usr/share/package-licenses/gnupg/ca474fc88304aab05401b27d158b3f9e0c1ffae6
+cp %{_builddir}/gnupg-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gnupg/4bc05f7560e1e3ced08b71c93f10abe9e702c3ee || :
+cp %{_builddir}/gnupg-%{version}/COPYING.CC0 %{buildroot}/usr/share/package-licenses/gnupg/754becb73f3b288d7d8a62d8927a334cd38ac10b || :
+cp %{_builddir}/gnupg-%{version}/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/gnupg/4cc77b90af91e615a64ae04893fdffa7939db84c || :
+cp %{_builddir}/gnupg-%{version}/COPYING.LGPL21 %{buildroot}/usr/share/package-licenses/gnupg/ac1b58bbd5bc11cacb7205718d620156ffd57c7e || :
+cp %{_builddir}/gnupg-%{version}/COPYING.LGPL3 %{buildroot}/usr/share/package-licenses/gnupg/bf58811df8e4261d540cc1872f42011872ca8f54 || :
+cp %{_builddir}/gnupg-%{version}/COPYING.other %{buildroot}/usr/share/package-licenses/gnupg/366d4e13a65adbfd0f7972f4c8dc9891692e92e5 || :
+cp %{_builddir}/gnupg-%{version}/tests/gpgscm/LICENSE.TinySCHEME %{buildroot}/usr/share/package-licenses/gnupg/ca474fc88304aab05401b27d158b3f9e0c1ffae6 || :
 pushd ../buildavx2/
 %make_install_v3
 popd
@@ -203,7 +201,9 @@ ln -s gpg %{buildroot}/usr/bin/gpg2
 /usr/bin/dirmngr-client
 /usr/bin/gpg
 /usr/bin/gpg-agent
+/usr/bin/gpg-card
 /usr/bin/gpg-connect-agent
+/usr/bin/gpg-wks-client
 /usr/bin/gpg-wks-server
 /usr/bin/gpg2
 /usr/bin/gpgconf
@@ -263,13 +263,17 @@ ln -s gpg %{buildroot}/usr/bin/gpg2
 /usr/share/info/gnupg.info
 /usr/share/info/gnupg.info-1
 /usr/share/info/gnupg.info-2
+/usr/share/info/gnupg.info-3
 
 %files libexec
 %defattr(-,root,root,-)
+/usr/libexec/gpg-auth
 /usr/libexec/gpg-check-pattern
+/usr/libexec/gpg-pair-tool
 /usr/libexec/gpg-preset-passphrase
 /usr/libexec/gpg-protect-tool
 /usr/libexec/gpg-wks-client
+/usr/libexec/keyboxd
 /usr/libexec/scdaemon
 /usr/share/clear/optimized-elf/exec*
 
@@ -287,6 +291,7 @@ ln -s gpg %{buildroot}/usr/bin/gpg2
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/dirmngr-client.1
 /usr/share/man/man1/gpg-agent.1
+/usr/share/man/man1/gpg-card.1
 /usr/share/man/man1/gpg-check-pattern.1
 /usr/share/man/man1/gpg-connect-agent.1
 /usr/share/man/man1/gpg-preset-passphrase.1
