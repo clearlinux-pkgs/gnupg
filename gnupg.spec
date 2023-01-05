@@ -6,7 +6,7 @@
 #
 Name     : gnupg
 Version  : 2.4.0
-Release  : 90
+Release  : 91
 URL      : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2
 Source0  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2
 Source1  : https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2.sig
