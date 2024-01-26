@@ -1,7 +1,7 @@
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: CFLocaleCopyPreferredLanguages
-Configure miss: NTBTLS - version >= 0.1.0
-Configure miss: NTBTLS - version >= 0.1.0
+Configure miss: NTBTLS - version >= 0.2.0
+Configure miss: NTBTLS - version >= 0.2.0
 Configure miss: ber_free in -llber
 Configure miss: ber_free in -llber
 Configure miss: byte
