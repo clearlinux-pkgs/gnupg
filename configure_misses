@@ -16,7 +16,6 @@ Configure miss: memicmp
 Configure miss: memicmp
 Configure miss: ntbtls-config
 Configure miss: ntbtls-config
-Configure miss: sendmail
 Configure miss: strlwr
 Configure miss: strlwr
 Configure miss: struct sockpeercred.pid
