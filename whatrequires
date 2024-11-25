@@ -4,6 +4,7 @@ ImageMagick
 LyX
 NetworkManager-l2tp
 SDL2
+SDL2_mixer
 WPEBackend-fdo
 acl
 akonadi
@@ -59,6 +60,7 @@ cifs-utils
 clamav
 colord-kde
 colordiff
+compat-ffmpeg-6
 compat-gcr-soname1
 compat-gsl-soname27
 compat-icu4c-rolling
@@ -73,9 +75,11 @@ curl
 darktable
 dav1d
 dbus-broker
+dbus-python
 debugedit
 desktop-file-utils
 dialog
+diffstat
 diffutils
 digikam
 dmidecode
@@ -119,6 +123,7 @@ geeqie
 gengetopt
 global
 gmime
+gnupg
 gnutls
 gpgme
 granatier
@@ -325,6 +330,7 @@ kxmlgui
 layer-shell-qt
 libXfont2
 libXmu
+libXt
 libXtst
 libaom
 libarchive
@@ -358,6 +364,7 @@ libkscreen
 libksieve
 libksysguard
 libmodulemd
+libmtp
 libnftnl
 libosinfo
 libpcap
@@ -471,7 +478,6 @@ purpose
 pycairo
 pypi-brotlipy
 pypi-fastimport
-pypi-gast
 pypi-nftables
 python-distutils-extra
 qca
@@ -519,6 +525,7 @@ volk
 volume_key
 wayland
 wayland-protocols
+webkitgtk
 webkitgtk60
 weechat
 weston
@@ -534,7 +541,10 @@ xf86-video-vboxvideo
 xkeyboard-config
 xlog
 xorg-server
+xprop
+xrandr
 xrdp
+xscorch
 xterm
 xtrans
 xwayland

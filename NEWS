@@ -1,3 +1,34 @@
+Noteworthy changes in version 2.4.7 (2024-11-25)
+------------------------------------------------
+
+  * gpg: Allow the use of an ADSK subkey as ADSK subkey.  [T6882]
+
+  * gpg: Avoid a failure exit code for expired ultimately trusted
+    keys.  [T7351]
+
+  * gpg: Fix comparing ed448 to ed25519 with --assert-pubkey-algo.
+    [T7425]
+
+  * gpg: Retain binary representation for import->export with Ed25519
+    key signatures.  [T7426]
+
+  * gpgsm: Improvement for some rare P12 files.  [rG5f9975abf5]
+
+  * scd: More mitigations against lock ups with multiple cards or
+    apps.  [T7323, T7402]
+
+  * gpgtar: Fix directory creation during extraction.  [T7380]
+
+  * gpg-mail-tube: Minor fixes.
+
+  * gpgconf: Add list flag to trusted-key et al.  [T7313]
+
+  * Fix a build problem on macOS (missing unistd.h).  [T7193]
+
+
+  Release-info: https://dev.gnupg.org/T7353
+
+
 Noteworthy changes in version 2.4.6 (2024-10-29)
 ------------------------------------------------
 
