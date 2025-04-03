@@ -1,2 +1,3 @@
 0001-Warn-on-use-of-insecure-3DES-algo.patch
 #backport-T6579-dirmngr-Enable-the-call-of-ks_ldap_help_variables-when-USE_LDAP.patch
+backport-b1857a2836c9a91ef4e359ef7ba949b54c77219d.patch
