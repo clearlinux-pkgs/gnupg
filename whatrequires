@@ -64,6 +64,7 @@ ccid
 chafa
 cifs-utils
 clamav
+colord
 colord-kde
 colordiff
 compat-ffmpeg-6
@@ -133,12 +134,14 @@ gengetopt
 gettext
 global
 gmime
+gnuchess
 gnupg
 gnutls
 gparted
 gpgme
 granatier
 grantleetheme
+grep
 gsequencer
 gsl
 gst-plugins-bad
@@ -148,6 +151,7 @@ gst-plugins-ugly
 gst-python
 gstreamer
 gstreamer-vaapi
+gzip
 hamlib
 highway
 icu4c
@@ -343,6 +347,7 @@ kxmlgui
 layer-shell-qt
 libXcursor
 libXfont2
+libXft
 libXmu
 libXt
 libXtst
@@ -383,6 +388,7 @@ libmodulemd
 libmtp
 libnftnl
 libosinfo
+libp11
 libpcap
 libpipeline
 libplasma
@@ -417,6 +423,7 @@ make
 man-db
 marble
 mercurial
+mesa-demos
 meson
 messagelib
 milou
@@ -516,10 +523,12 @@ quilt
 ragel
 raptor2
 readline
+restic
 rpm
 rsync
 runc
 rustc
+screen
 sddm-kcm
 seahorse
 sed
@@ -538,6 +547,7 @@ stunnel
 suricata
 svgpart
 sweeper
+syncthing
 syndication
 syntax-highlighting
 system-config-printer
@@ -548,6 +558,7 @@ threadweaver
 tpm2-tss
 userspace-rcu
 v4l-utils
+vifm
 vkd3d
 volk
 volume_key
@@ -580,6 +591,7 @@ xscorch
 xterm
 xtrans
 xwayland
+xz
 yakuake
 znc
 zstd
